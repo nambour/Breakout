@@ -19,21 +19,32 @@ class GameViewController: UIViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
+                scene.anchorPoint = CGPoint(x: 0, y: 0)
                 
                 // Present the scene
                 view.presentScene(scene)
             }
             
-            view.ignoresSiblingOrder = true
+            view.preferredFramesPerSecond = 60
             
             view.showsFPS = true
             view.showsNodeCount = true
+            view.showsPhysics = true
+            view.showsDrawCount = true
+            view.showsFields = true
+            view.showsQuadCount = true
+            
+            view.ignoresSiblingOrder = true
+            
+            view.backgroundColor = UIColor.blue
+            
+            
         }
     }
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -45,6 +56,6 @@ class GameViewController: UIViewController {
     }
 
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 }
